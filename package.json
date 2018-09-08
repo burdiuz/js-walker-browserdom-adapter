@@ -1,8 +1,8 @@
 {
-  "name": "@actualwave/tree-walker-browserdom-adapter",
+  "name": "@actualwave/walker-browserdom-adapter",
   "description": "Tree Walker adapter for DOM",
   "version": "0.0.1",
-  "main": "dist/browser-dom-adapter.js",
+  "main": "index.js",
   "keywords": [
     "js",
     "javascript",
@@ -23,7 +23,7 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "@actualwave/tree-walker": "^0.0.4"
+    "@actualwave/tree-walker": "^1.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -57,9 +57,8 @@
     "uglify-es": "^3.3.9"
   },
   "lint-staged": {
-    "source/**/!(__tests__/).js": "eslint --fix",
-    "{source/**/__tests__/*.js,source/**/__mocks__/*.js}": "eslint -c eslintrc.spec.json --fix",
     "source/**/*.js": [
+      "eslint --fix",
       "prettier --write",
       "git add"
     ]
@@ -104,10 +103,8 @@
     "start": "build",
     "build": "rollup --config",
     "build:watch": "rollup --config --watch \"./source\"",
-    "lint": "./node_modules/.bin/eslint \"source/**/!(__tests__/)*.js\"",
-    "lint:spec": "./node_modules/.bin/eslint -c eslintrc.spec.json \"source/**/__tests__/*.js\"",
+    "lint": "./node_modules/.bin/eslint \"source/*.js\"",
     "flow": "./node_modules/.bin/flow",
-    "server": "rollup --config rollup.serve.js",
     "test": "jest --colors",
     "test:watch": "jest --colors --watch",
     "lint-staged": "lint-staged",

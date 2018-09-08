@@ -147,4 +147,4 @@ var index = {
 };
 
 exports.default = index;
-//# sourceMappingURL=browser-dom-adapter.js.map
+//# sourceMappingURL=index.js.map

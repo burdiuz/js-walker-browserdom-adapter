@@ -117,7 +117,9 @@ const getNodeRoot = (node) => toNode(node).getRootNode();
 const validateRoot = (root) => {
   if (root === undefined || root === document) {
     return document.firstElementChild;
-  } else if (typeof root === 'string') {
+  }
+
+  if (typeof root === 'string') {
     return document.querySelector(root);
   }
 
