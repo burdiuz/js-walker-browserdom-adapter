@@ -47,6 +47,8 @@ const getNodeAt = (list, index = 0) => {
 
 const getLength = list => list.length;
 
+const getName = node => toNode(node).nodeName;
+
 // Node
 const getChildren = node => {
   node = toNode(node);
@@ -76,8 +78,6 @@ const getChildrenByName = (node, name) => {
   return list;
 };
 
-const hasChildren = node => !!toNode(node).childElementCount;
-
 const hasChild = (node, name) => {
   const children = getChildren(node);
   const { length } = children;
@@ -93,23 +93,6 @@ const hasChild = (node, name) => {
 
 const getChildAt = (node, index) => getChildren(node)[index];
 
-const getAttributes = node => {
-  node = toNode(node);
-  if (node.hasAttributes()) {
-    return node.attributes;
-  }
-
-  return null;
-};
-
-const hasAttribute = (node, name) => toNode(node).hasAttribute(name);
-
-const getAttributeValue = (node, name) => toNode(node).getAttribute(name);
-
-const getName = node => toNode(node).nodeName;
-
-const getText = node => toNode(node).innerText;
-
 const getNodeParent = node => toNode(node).parentNode;
 
 const getNodeRoot = node => toNode(node).getRootNode();
@@ -117,7 +100,9 @@ const getNodeRoot = node => toNode(node).getRootNode();
 const validateRoot = root => {
   if (root === undefined || root === document) {
     return document.firstElementChild;
-  } else if (typeof root === 'string') {
+  }
+
+  if (typeof root === 'string') {
     return document.querySelector(root);
   }
 
@@ -131,16 +116,11 @@ var index = {
   toNode,
   getNodeAt,
   getLength,
+  getName,
   getChildren,
   getChildrenByName,
-  hasChildren,
   hasChild,
   getChildAt,
-  getAttributes,
-  hasAttribute,
-  getAttributeValue,
-  getName,
-  getText,
   getNodeParent,
   getNodeRoot,
   validateRoot

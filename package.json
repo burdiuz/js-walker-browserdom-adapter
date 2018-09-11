@@ -1,6 +1,6 @@
 {
   "name": "@actualwave/walker-browserdom-adapter",
-  "description": "Tree Walker adapter for DOM",
+  "description": "TreeWalker adapter for DOM",
   "version": "0.0.1",
   "main": "index.js",
   "keywords": [
@@ -104,7 +104,6 @@
     "build": "rollup --config",
     "build:watch": "rollup --config --watch \"./source\"",
     "lint": "./node_modules/.bin/eslint \"source/*.js\"",
-    "flow": "./node_modules/.bin/flow",
     "test": "jest --colors",
     "test:watch": "jest --colors --watch",
     "lint-staged": "lint-staged",
